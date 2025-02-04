@@ -1,0 +1,36 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+@font-face {
+  font-family: plutoblack;
+  src: url("./public/fonts/PlutoBlack.otf");
+}
+@font-face {
+  font-family: plutobold;
+  src: url("./public/fonts/PlutoBold.otf");
+}
+
+@font-face {
+  font-family: plutoheavy;
+  src: url("./public/fonts/PlutoHeavy.otf");
+}
+
+@font-face {
+  font-family: plutolight;
+  src: url("./public/fonts/PlutoLight.otf");
+}
+
+@font-face {
+  font-family: plutoregular;
+  src: url("./public/fonts/PlutoRegular.otf");
+}

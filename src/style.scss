@@ -1,0 +1,254 @@
+@import "./global.scss";
+
+.container {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: aqua;
+  .background-img {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .bg {
+      width: 56vh;
+      height: 100%;
+      background: url("images/common/BG.png") no-repeat center;
+      background-size: cover;
+    }
+  }
+  .header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: calc(100% - min(4vw - 4vh));
+    padding: min(2vw, 2vh);
+    margin: auto;
+    .left {
+      .language {
+        position: relative;
+        width: min(45vw, 22.5vh);
+        img {
+          width: 100%;
+        }
+        img.ar {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+        }
+      }
+    }
+    .right {
+      .audio {
+        position: relative;
+        width: min(18vw, 9vh);
+        img {
+          width: 100%;
+          height: auto;
+        }
+        img.audio-off {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+        }
+      }
+    }
+  }
+  .button-section {
+    position: fixed;
+    left: 0;
+    top: 80%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .button {
+      width: min(60vw, 40vh);
+      img {
+        width: 100%;
+      }
+    }
+  }
+  .Home-scr {
+    position: fixed;
+    left: 0;
+    top: 10%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    .title {
+      position: relative;
+      width: min(80vw, 50vh);
+      background-size: 100%;
+      display: flex;
+      margin: auto;
+      &.en {
+        background-image: url("images/en/title-en.png");
+      }
+      &.ar {
+      }
+    }
+  }
+}
+
+.title-en-01 {
+  background-position: 0 1;
+}
+.title-en-02 {
+  background-position: 0 1;
+}
+
+.title-en-03 {
+  background-position: 0 1;
+}
+.title-en-04 {
+  background-position: 0 1;
+}
+
+.title-en-05 {
+  background-position: 0 1;
+}
+
+.title-en-06 {
+  background-position: 0 1;
+}
+
+.title-en-07 {
+  background-position: 0 1;
+}
+
+.title-en-08 {
+  background-position: 0 1;
+}
+
+.title-en-09 {
+  background-position: 0 1;
+}
+
+.title-en-10 {
+  background-position: 0 1;
+}
+
+.title-en-11 {
+  background-position: 0 1;
+}
+.title-en-12 {
+  background-position: 0 1;
+}
+
+.title-en-13 {
+  background-position: 0 1;
+}
+.title-en-14 {
+  background-position: 0 1;
+}
+
+.title-en-15 {
+  background-position: 0 1;
+}
+
+.title-en-16 {
+  background-position: 0 1;
+}
+
+.title-en-17 {
+  background-position: 0 1;
+}
+
+.title-en-18 {
+  background-position: 0 1;
+}
+
+.title-en-19 {
+  background-position: 0 1;
+}
+
+.title-en-20 {
+  background-position: 0 1;
+}
+
+.title-en-21 {
+  background-position: 0 1;
+}
+.title-en-22 {
+  background-position: 0 1;
+}
+
+.title-en-23 {
+  background-position: 0 1;
+}
+.title-en-24 {
+  background-position: 0 1;
+}
+
+.title-en-25 {
+  background-position: 0 1;
+}
+
+.title-en-26 {
+  background-position: 0 1;
+}
+
+.title-en-27 {
+  background-position: 0 1;
+}
+
+.title-en-28 {
+  background-position: 0 1;
+}
+
+.title-en-29 {
+  background-position: 0 1;
+}
+
+.title-en-30 {
+  background-position: 0 1;
+}
+
+.title-en-31 {
+  background-position: 0 1;
+}
+.title-en-32 {
+  background-position: 0 1;
+}
+
+.title-en-33 {
+  background-position: 0 1;
+}
+.title-en-34 {
+  background-position: 0 1;
+}
+
+.title-en-35 {
+  background-position: 0 1;
+}
+
+.title-en-36 {
+  background-position: 0 1;
+}
+
+.title-en-37 {
+  background-position: 0 1;
+}
+
+.title-en-38 {
+  background-position: 0 1;
+}
+
+.title-en-39 {
+  background-position: 0 1;
+}
+
+.title-en-40 {
+  background-position: 0 1;
+}
