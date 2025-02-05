@@ -5,6 +5,7 @@ import { isMobile, isMobileOnly } from "mobile-device-detect";
 let titlePostfix = 1;
 let coinPostFix = 1;
 let cookietwistPostfix = 1;
+let congratsPostfix = 1;
 let start_cookie_anim = false;
 let languageToggle = document.getElementById("language");
 
@@ -77,6 +78,16 @@ const languageToggleFunc = () => {
       `cookie-twist-${cookietwistPostfix < 10 ? "0" : ""}${cookietwistPostfix}`
     );
 
+  //remove image before adding to congrats
+  document
+    .querySelector(".screen_six .congrats")
+    .classList.remove(
+      `congrats-${language}-${
+        congratsPostfix < 10 ? "0" : ""
+      }${congratsPostfix}`
+    );
+  document.querySelector(".screen_six .congrats").classList.remove(language);
+
   //toggle language selection image
   document
     .querySelector(".header .left #language img.ar")
@@ -90,16 +101,22 @@ const languageToggleFunc = () => {
   //add sprite image class  based on langauge
   document.querySelector(".title-scr .title").classList.add(language);
   document.querySelector(".screen_two .coin").classList.add(language);
+  document.querySelector(".screen_six .congrats").classList.add(language);
 };
 
 //frames update event
 function framesupdate(addframes) {
-  //add sprite image class  based on langauge for first time load
+  //title-add sprite image class  based on langauge for first time load
   document.querySelector(".title-scr .title").classList.remove(language);
   document.querySelector(".title-scr .title").classList.add(language);
 
+  //coin-add sprite image class  based on langauge for first time load title
   document.querySelector(".screen_two .coin").classList.remove(language);
   document.querySelector(".screen_two .coin").classList.add(language);
+
+  // congrats-add sprite image class  based on langauge for first time load title
+  document.querySelector(".screen_six .congrats").classList.remove(language);
+  document.querySelector(".screen_six .congrats").classList.add(language);
 
   //remove image on title
   document
@@ -120,23 +137,39 @@ function framesupdate(addframes) {
     .classList.remove(
       `cookie-twist-${cookietwistPostfix < 10 ? "0" : ""}${cookietwistPostfix}`
     );
+  //remove image on congrats
+  document
+    .querySelector(".screen_six .congrats")
+    .classList.remove(
+      `congrats-${language}-${
+        congratsPostfix < 10 ? "0" : ""
+      }${congratsPostfix}`
+    );
 
   if (addframes) {
     titlePostfix += 1;
     coinPostFix += 1;
-
-    //reset
+    congratsPostfix += 1;
+    //reset-title
     if (titlePostfix > 40 && language == "en") {
       titlePostfix = 40;
     }
     if (titlePostfix > 39 && language == "ar") {
       titlePostfix = 39;
     }
+    //reset-coin
     if (coinPostFix > 20 && language == "en") {
       coinPostFix = 1;
     }
     if (coinPostFix > 20 && language == "ar") {
       coinPostFix = 1;
+    }
+    //reset-congrats
+    if (congratsPostfix > 20 && language == "en") {
+      congratsPostfix = 1;
+    }
+    if (congratsPostfix > 20 && language == "ar") {
+      congratsPostfix = 1;
     }
 
     //add new image on title
@@ -150,6 +183,14 @@ function framesupdate(addframes) {
       .querySelector(".screen_two .coin")
       .classList.add(
         `coin-${language}-${coinPostFix < 10 ? "0" : ""}${coinPostFix}`
+      );
+    //add new image on congrats
+    document
+      .querySelector(".screen_six .congrats")
+      .classList.add(
+        `congrats-${language}-${
+          congratsPostfix < 10 ? "0" : ""
+        }${congratsPostfix}`
       );
   }
 

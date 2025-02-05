@@ -43,7 +43,7 @@
           <img src="images/en/proceed.png" class="proceedbtn" alt="" />
         </div>
       </div>
-      <div class="title-scr up">
+      <div class="title-scr">
         <div class="title"></div>
       </div>
       <div class="screen_one">
@@ -70,16 +70,126 @@
         <div class="cookie-twist en"></div>
       </div>
       <div class="screen_four">
-        <div class="form-fill">
-          <form action="" method="post">
-            <label for="fname">Name</label>
-            <input type="text" id="fname" name="firstname" placeholder="" />
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" placeholder="" />
-            <label for="phonenumber">Phone Number</label>
-            <input type="password" id="number" name="number" placeholder="" />
-          </form>
+        <div class="register_content">
+          <div class="label name">Name</div>
+          <div class="field">
+            <input
+              type="text"
+              name="name"
+              id="name"
+              placeholder=""
+              autocomplete="off"
+            />
+          </div>
+          <div class="label email">Email</div>
+          <div class="field">
+            <input
+              type="email"
+              name="email"
+              id="email"
+              placeholder=""
+              autocomplete="off"
+            />
+          </div>
+          <div class="label mobile">Phone Number</div>
+          <div class="field">
+            <input
+              type="tel"
+              name="mobile"
+              id="mobile"
+              placeholder=""
+              autocomplete="off"
+              maxlength="11"
+            />
+            <div class="code">1234</div>
+          </div>
         </div>
+        <div class="bottom">
+          <div class="age_check">
+            <div class="checkbox">
+              <img src="images/common/Non-Tick-box.png" id="age_check" alt="" />
+              <img
+                src="images/common/Tick-box.png"
+                id="age_checked"
+                class="checked"
+                alt=""
+              />
+            </div>
+
+            <div class="label">I agree that I am above 13 years of age</div>
+          </div>
+          <div class="tc_check">
+            <div class="checkbox">
+              <img src="images/common/Non-Tick-box.png" id="tc_check" alt="" />
+              <img
+                src="images/common/Tick-box.png"
+                id="tc_checked"
+                class="checked"
+                alt=""
+              />
+            </div>
+
+            <div class="label">
+              I accept the <u class="tc_trigger">T&C</u> and
+              <u class="privacy_trigger">Privacy Notice</u> of Mondelez and
+              consent to Mondelez using my personal information as stated in the
+              <u class="tc_trigger">T&Cs</u> and
+              <u class="privacy_trigger">Privacy Notice</u>.
+            </div>
+          </div>
+          <div class="promotion_check">
+            <div class="checkbox">
+              <img
+                src="images/common/Non-Tick-box.png"
+                id="promotion_check"
+                alt=""
+              />
+              <img
+                src="images/common/Tick-box.png"
+                id="promotion_checked"
+                class="checked"
+                alt=""
+              />
+            </div>
+            <div class="label">
+              I would like to receive promotional communication from Mondelez
+              about it's products and offers.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="screen_five">
+        <div class="upload-recipe">
+          <img src="images/common/Base.png" alt="" />
+          <img
+            src="images/en/Complete-Receipt-with-text.png"
+            class="upload inactive"
+            alt=""
+          />
+          <img
+            src="images/common/Torn-receipt_Botton.png"
+            class="torn-bottom"
+            alt=""
+          />
+          <img
+            src="images/en/Torn-receipt_Top-same-size.png"
+            class="torn-top"
+            alt=""
+          />
+          <img
+            src="images/en/Upload-oreo-pack-image.png"
+            class="image-upload"
+            alt=""
+          />
+          <img
+            src="images/en/Uploaded-oreo-pack-image_Same-size.png"
+            class="image-uploaded"
+            alt=""
+          />
+        </div>
+      </div>
+      <div class="screen_six">
+        <div class="congrats"></div>
       </div>
     </div>
   </body>
