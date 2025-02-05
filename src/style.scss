@@ -43,6 +43,10 @@
           top: 0;
           left: 0;
           width: 100%;
+          opacity: 0;
+          &.active {
+            opacity: 1;
+          }
         }
       }
     }
@@ -83,172 +87,331 @@
     left: 0;
     top: 10%;
     width: 100%;
+    height: 70%;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     .title {
       position: relative;
-      width: min(80vw, 50vh);
+      padding-top: 0 !important;
+      padding-bottom: 0 !important;
+      width: min(80vw, 40vh);
+      height: calc(min(80vw, 35vh) / 1.4);
       background-size: 100%;
       display: flex;
       margin: auto;
       &.en {
-        background-image: url("images/en/title-en.png");
+        background-image: url("images/en/title-english.png");
+        background-size: 100%;
       }
       &.ar {
+        background-image: url("images/en/title-arabic.png");
+        background-size: 100%;
       }
     }
   }
 }
 
+//title-english-animation
+$positionratio: 2.56%;
 .title-en-01 {
-  background-position: 0 1;
+  background-position: 0 calc($positionratio * 0) !important;
 }
 .title-en-02 {
-  background-position: 0 1;
+  background-position: 0 calc($positionratio * 1) !important;
 }
 
 .title-en-03 {
-  background-position: 0 1;
+  background-position: 0 calc($positionratio * 2) !important;
 }
 .title-en-04 {
-  background-position: 0 1;
+  background-position: 0 calc($positionratio * 3) !important;
 }
 
 .title-en-05 {
-  background-position: 0 1;
+  background-position: 0 calc($positionratio * 4) !important;
 }
 
 .title-en-06 {
-  background-position: 0 1;
+  background-position: 0 calc($positionratio * 5) !important;
 }
 
 .title-en-07 {
-  background-position: 0 1;
+  background-position: 0 calc($positionratio * 6) !important;
 }
 
 .title-en-08 {
-  background-position: 0 1;
+  background-position: 0 calc($positionratio * 7) !important;
 }
 
 .title-en-09 {
-  background-position: 0 1;
+  background-position: 0 calc($positionratio * 8) !important;
 }
 
 .title-en-10 {
-  background-position: 0 1;
+  background-position: 0 calc($positionratio * 9) !important;
 }
 
 .title-en-11 {
-  background-position: 0 1;
+  background-position: 0 calc($positionratio * 10) !important;
 }
 .title-en-12 {
-  background-position: 0 1;
+  background-position: 0 calc($positionratio * 11) !important;
 }
 
 .title-en-13 {
-  background-position: 0 1;
+  background-position: 0 calc($positionratio * 12) !important;
 }
 .title-en-14 {
-  background-position: 0 1;
+  background-position: 0 calc($positionratio * 13) !important;
 }
 
 .title-en-15 {
-  background-position: 0 1;
+  background-position: 0 calc($positionratio * 14) !important;
 }
 
 .title-en-16 {
-  background-position: 0 1;
+  background-position: 0 calc($positionratio * 15) !important;
 }
 
 .title-en-17 {
-  background-position: 0 1;
+  background-position: 0 calc($positionratio * 16) !important;
 }
 
 .title-en-18 {
-  background-position: 0 1;
+  background-position: 0 calc($positionratio * 17) !important;
 }
 
 .title-en-19 {
-  background-position: 0 1;
+  background-position: 0 calc($positionratio * 18) !important;
 }
 
 .title-en-20 {
-  background-position: 0 1;
+  background-position: 0 calc($positionratio * 19) !important;
 }
 
 .title-en-21 {
-  background-position: 0 1;
+  background-position: 0 calc($positionratio * 20) !important;
 }
 .title-en-22 {
-  background-position: 0 1;
+  background-position: 0 calc($positionratio * 21) !important;
 }
 
 .title-en-23 {
-  background-position: 0 1;
+  background-position: 0 calc($positionratio * 22) !important;
 }
 .title-en-24 {
-  background-position: 0 1;
+  background-position: 0 calc($positionratio * 23) !important;
 }
 
 .title-en-25 {
-  background-position: 0 1;
+  background-position: 0 calc($positionratio * 24) !important;
 }
 
 .title-en-26 {
-  background-position: 0 1;
+  background-position: 0 calc($positionratio * 25) !important;
 }
 
 .title-en-27 {
-  background-position: 0 1;
+  background-position: 0 calc($positionratio * 26) !important;
 }
 
 .title-en-28 {
-  background-position: 0 1;
+  background-position: 0 calc($positionratio * 27) !important;
 }
 
 .title-en-29 {
-  background-position: 0 1;
+  background-position: 0 calc($positionratio * 28) !important;
 }
 
 .title-en-30 {
-  background-position: 0 1;
+  background-position: 0 calc($positionratio * 29) !important;
 }
 
 .title-en-31 {
-  background-position: 0 1;
+  background-position: 0 calc($positionratio * 30) !important;
 }
 .title-en-32 {
-  background-position: 0 1;
+  background-position: 0 calc($positionratio * 31) !important;
 }
 
 .title-en-33 {
-  background-position: 0 1;
+  background-position: 0 calc($positionratio * 32) !important;
 }
 .title-en-34 {
-  background-position: 0 1;
+  background-position: 0 calc($positionratio * 33) !important;
 }
 
 .title-en-35 {
-  background-position: 0 1;
+  background-position: 0 calc($positionratio * 34) !important;
 }
 
 .title-en-36 {
-  background-position: 0 1;
+  background-position: 0 calc($positionratio * 35) !important;
 }
 
 .title-en-37 {
-  background-position: 0 1;
+  background-position: 0 calc($positionratio * 36) !important;
 }
 
 .title-en-38 {
-  background-position: 0 1;
+  background-position: 0 calc($positionratio * 37) !important;
 }
 
 .title-en-39 {
-  background-position: 0 1;
+  background-position: 0 calc($positionratio * 38) !important;
 }
 
 .title-en-40 {
-  background-position: 0 1;
+  background-position: 0 calc($positionratio * 39) !important;
+}
+
+//title-arabic-animation
+$positionratio-ar: 2.63%;
+.title-ar-01 {
+  background-position: 0 calc($positionratio-ar * 0) !important;
+}
+.title-ar-02 {
+  background-position: 0 calc($positionratio-ar * 1) !important;
+}
+
+.title-ar-03 {
+  background-position: 0 calc($positionratio-ar * 2) !important;
+}
+.title-ar-04 {
+  background-position: 0 calc($positionratio-ar * 3) !important;
+}
+
+.title-ar-05 {
+  background-position: 0 calc($positionratio-ar * 4) !important;
+}
+
+.title-ar-06 {
+  background-position: 0 calc($positionratio-ar * 5) !important;
+}
+
+.title-ar-07 {
+  background-position: 0 calc($positionratio-ar * 6) !important;
+}
+
+.title-ar-08 {
+  background-position: 0 calc($positionratio-ar * 7) !important;
+}
+
+.title-ar-09 {
+  background-position: 0 calc($positionratio-ar * 8) !important;
+}
+
+.title-ar-10 {
+  background-position: 0 calc($positionratio-ar * 9) !important;
+}
+
+.title-ar-11 {
+  background-position: 0 calc($positionratio-ar * 10) !important;
+}
+.title-ar-12 {
+  background-position: 0 calc($positionratio-ar * 11) !important;
+}
+
+.title-ar-13 {
+  background-position: 0 calc($positionratio-ar * 12) !important;
+}
+.title-ar-14 {
+  background-position: 0 calc($positionratio-ar * 13) !important;
+}
+
+.title-ar-15 {
+  background-position: 0 calc($positionratio-ar * 14) !important;
+}
+
+.title-ar-16 {
+  background-position: 0 calc($positionratio-ar * 15) !important;
+}
+
+.title-ar-17 {
+  background-position: 0 calc($positionratio-ar * 16) !important;
+}
+
+.title-ar-18 {
+  background-position: 0 calc($positionratio-ar * 17) !important;
+}
+
+.title-ar-19 {
+  background-position: 0 calc($positionratio-ar * 18) !important;
+}
+
+.title-ar-20 {
+  background-position: 0 calc($positionratio-ar * 19) !important;
+}
+
+.title-ar-21 {
+  background-position: 0 calc($positionratio-ar * 20) !important;
+}
+.title-ar-22 {
+  background-position: 0 calc($positionratio-ar * 21) !important;
+}
+
+.title-ar-23 {
+  background-position: 0 calc($positionratio-ar * 22) !important;
+}
+.title-ar-24 {
+  background-position: 0 calc($positionratio-ar * 23) !important;
+}
+
+.title-ar-25 {
+  background-position: 0 calc($positionratio-ar * 24) !important;
+}
+
+.title-ar-26 {
+  background-position: 0 calc($positionratio-ar * 25) !important;
+}
+
+.title-ar-27 {
+  background-position: 0 calc($positionratio-ar * 26) !important;
+}
+
+.title-ar-28 {
+  background-position: 0 calc($positionratio-ar * 27) !important;
+}
+
+.title-ar-29 {
+  background-position: 0 calc($positionratio-ar * 28) !important;
+}
+
+.title-ar-30 {
+  background-position: 0 calc($positionratio-ar * 29) !important;
+}
+
+.title-ar-31 {
+  background-position: 0 calc($positionratio-ar * 30) !important;
+}
+.title-ar-32 {
+  background-position: 0 calc($positionratio-ar * 31) !important;
+}
+
+.title-ar-33 {
+  background-position: 0 calc($positionratio-ar * 32) !important;
+}
+.title-ar-34 {
+  background-position: 0 calc($positionratio-ar * 33) !important;
+}
+
+.title-ar-35 {
+  background-position: 0 calc($positionratio-ar * 34) !important;
+}
+
+.title-ar-36 {
+  background-position: 0 calc($positionratio-ar * 35) !important;
+}
+
+.title-ar-37 {
+  background-position: 0 calc($positionratio-ar * 36) !important;
+}
+
+.title-ar-38 {
+  background-position: 0 calc($positionratio-ar * 37) !important;
+}
+
+.title-ar-39 {
+  background-position: 0 calc($positionratio-ar * 38) !important;
 }
