@@ -1,19 +1,37 @@
 import "./style.scss";
 // import { Server } from "./common/callServer";
-// import { Global } from "./common/global";
+import {
+  Global,
+  data,
+  buttonImages,
+  country,
+  screen_button,
+} from "./common/global";
+
 import { isMobile, isMobileOnly } from "mobile-device-detect";
 let titlePostfix = 1;
 let coinPostFix = 1;
 let cookietwistPostfix = 1;
 let congratsPostfix = 1;
 let start_cookie_anim = false;
-let languageToggle = document.getElementById("language");
 
+//DOM Elements
+let languageToggle = document.getElementById("language");
+let countryEle = document.getElementById("country-select");
+let btnEle = document.querySelector(".button-section .button");
+let screen_oneEle = document.querySelector(".screen_one");
+let screen_twoEle = document.querySelector(".screen_two");
+let screen_threeEle = document.querySelector(".screen_three");
+let screen_fourEle = document.querySelector(".screen_four");
+let screen_fiveEle = document.querySelector(".screen_five");
+let screen_sixEle = document.querySelector(".screen_six");
+let title_scr = document.querySelector(".title-scr");
+let reveal_textEle = document.querySelector(".reveal_text");
 //local language detect
 let language = localStorage.getItem("language")
   ? localStorage.getItem("language")
   : "en";
-console.log(language);
+data.language = language;
 
 const setUID = (v) => {
   v = JSON.parse(v);
@@ -40,6 +58,106 @@ window.onload = () => {
 
 const activatePage = () => {
   activateAnimation();
+};
+
+//DOM Elements Listener
+//country selection listner
+countryEle.addEventListener("change", (e) => {
+  selectCountry(e);
+});
+
+// Bottom Btn click listner
+
+btnEle.addEventListener("click", function () {
+  btnclick(this);
+});
+
+//DOM Elements Functions
+const selectCountry = (e) => {
+  data.country = country[e.target.value];
+};
+
+//checks screen and decides to active the button for next screen
+// and deactive current screen
+function btnclick(ele) {
+  switch (data.curr_screen) {
+    case "screen_one":
+      screen_oneEle.classList.remove("active");
+      screen_twoEle.classList.add("active");
+      data.curr_screen = "screen_two";
+      data.prev_screen = "screen_one";
+      screenbtnChange();
+      break;
+
+    case "screen_two":
+      title_scr.classList.add("up");
+      screen_twoEle.classList.remove("active");
+      screen_threeEle.classList.add("active");
+      data.curr_screen = "screen_three";
+      data.prev_screen = "screen_two";
+      screenbtnChange();
+      break;
+
+    case "screen_three":
+      if (!data.iscookieanim) {
+        start_cookie_anim = true;
+        reveal_textEle.classList.remove("active");
+        data.iscookieanim = true;
+      } else {
+        title_scr.classList.add("up");
+        screen_threeEle.classList.remove("active");
+        screen_fourEle.classList.add("active");
+        data.curr_screen = "screen_four";
+        data.prev_screen = "screen_three";
+        screenbtnChange();
+      }
+      break;
+
+    case "screen_four":
+      if (data.issubmit) {
+        title_scr.classList.add("up");
+        screen_fourEle.classList.remove("active");
+        screen_fiveEle.classList.add("active");
+        data.curr_screen = "screen_five";
+        data.prev_screen = "screen_four";
+        data.prev_button = screen_button[data.prev_screen];
+        document
+          .querySelector(`.${data.prev_button}`)
+          .classList.remove("active");
+        document
+          .querySelector(`.${screen_button[data.curr_screen][data.isupload]}`)
+          .classList.add("active");
+      }
+
+      break;
+
+    case "screen_five":
+      if (data.isupload == "uploaded") {
+        title_scr.classList.remove("up");
+        screen_fiveEle.classList.remove("active");
+        screen_sixEle.classList.add("active");
+        data.curr_screen = "screen_six";
+        data.prev_screen = "screen_five";
+        data.prev_button = screen_button[data.prev_screen][data.isupload];
+        document
+          .querySelector(`.${data.prev_button}`)
+          .classList.remove("active");
+        document
+          .querySelector(`.${screen_button[data.curr_screen]}`)
+          .classList.add("active");
+      }
+
+      break;
+  }
+}
+
+//common functions
+const screenbtnChange = () => {
+  data.prev_button = screen_button[data.prev_screen];
+  document.querySelector(`.${data.prev_button}`).classList.remove("active");
+  document
+    .querySelector(`.${screen_button[data.curr_screen]}`)
+    .classList.add("active");
 };
 
 //languagetoggle button click event
