@@ -6,6 +6,7 @@ import {
   buttonImages,
   country,
   screen_button,
+  countryCodes,
 } from "./common/global";
 
 import { isMobile, isMobileOnly } from "mobile-device-detect";
@@ -14,7 +15,7 @@ let coinPostFix = 1;
 let cookietwistPostfix = 1;
 let congratsPostfix = 1;
 let start_cookie_anim = false;
-
+let errorTO = null;
 //DOM Elements
 let languageToggle = document.getElementById("language");
 let countryEle = document.getElementById("country-select");
@@ -27,6 +28,13 @@ let screen_fiveEle = document.querySelector(".screen_five");
 let screen_sixEle = document.querySelector(".screen_six");
 let title_scr = document.querySelector(".title-scr");
 let reveal_textEle = document.querySelector(".reveal_text");
+let register_textEle = document.querySelector(".register");
+let discover_textEle = document.querySelector(".discover");
+let title_bgEle = document.querySelector(".title-bg");
+let privacy_Ele = document.querySelectorAll(".privacy_trigger");
+let tc_Ele = document.querySelectorAll(".tc_trigger");
+let tc_closeEle = document.querySelector(".termsClose");
+let errorInfo_Ele = document.querySelector(".errorInfo");
 //local language detect
 let language = localStorage.getItem("language")
   ? localStorage.getItem("language")
@@ -58,6 +66,41 @@ window.onload = () => {
 
 const activatePage = () => {
   activateAnimation();
+  privacy_Ele.forEach((trigger) => {
+    trigger.addEventListener("click", () => {
+      location.href = `./privacy-policy/${language}`;
+    });
+  });
+  tc_Ele.forEach((trigger) => {
+    trigger.addEventListener("click", () => {
+      document.querySelector("#terms_sec").classList.add("active");
+    });
+  });
+  tc_closeEle.addEventListener("click", () => {
+    document.querySelector("#terms_sec").classList.remove("active");
+  });
+};
+
+//it fetches html based on country and language
+const setTerms = () => {
+  if (data.language == "ar") {
+    document.querySelector("#terms_sec").classList.add("ar");
+  } else {
+    document.querySelector("#terms_sec").classList.remove("ar");
+  }
+  fetch(`/images/common/${data.country}_${data.language}.html`)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+      return response.text();
+    })
+    .then((html) => {
+      document.querySelector("#terms_sec .content").innerHTML = html;
+    })
+    .catch((error) => {
+      console.error("There was a problem with the fetch operation:", error);
+    });
 };
 
 //DOM Elements Listener
@@ -72,6 +115,14 @@ btnEle.addEventListener("click", function () {
   btnclick(this);
 });
 
+//register click listner
+register_textEle.addEventListener("click", function () {
+  registerclick();
+});
+//discover recipe click listner
+discover_textEle.addEventListener("click", function () {
+  discoverclick();
+});
 //DOM Elements Functions
 const selectCountry = (e) => {
   data.country = country[e.target.value];
@@ -82,15 +133,20 @@ const selectCountry = (e) => {
 function btnclick(ele) {
   switch (data.curr_screen) {
     case "screen_one":
-      screen_oneEle.classList.remove("active");
-      screen_twoEle.classList.add("active");
-      data.curr_screen = "screen_two";
-      data.prev_screen = "screen_one";
-      screenbtnChange();
+      if (proceedFromCountrySelection()) {
+        setTerms();
+        screen_oneEle.classList.remove("active");
+        screen_twoEle.classList.add("active");
+        data.curr_screen = "screen_two";
+        data.prev_screen = "screen_one";
+        screenbtnChange();
+      }
+
       break;
 
     case "screen_two":
       title_scr.classList.add("up");
+      title_bgEle.classList.remove("active");
       screen_twoEle.classList.remove("active");
       screen_threeEle.classList.add("active");
       data.curr_screen = "screen_three";
@@ -100,22 +156,24 @@ function btnclick(ele) {
 
     case "screen_three":
       if (!data.iscookieanim) {
+        title_bgEle.classList.remove("active");
         start_cookie_anim = true;
         reveal_textEle.classList.remove("active");
         data.iscookieanim = true;
-      } else {
-        title_scr.classList.add("up");
-        screen_threeEle.classList.remove("active");
-        screen_fourEle.classList.add("active");
-        data.curr_screen = "screen_four";
-        data.prev_screen = "screen_three";
-        screenbtnChange();
+        setTimeout(() => {
+          register_textEle.classList.add("active");
+          discover_textEle.classList.add("active");
+        }, 3000);
+        document
+          .querySelector(`.${screen_button[data.curr_screen]}`)
+          .classList.remove("active");
       }
       break;
 
     case "screen_four":
       if (data.issubmit) {
         title_scr.classList.add("up");
+        title_bgEle.classList.remove("active");
         screen_fourEle.classList.remove("active");
         screen_fiveEle.classList.add("active");
         data.curr_screen = "screen_five";
@@ -134,6 +192,7 @@ function btnclick(ele) {
     case "screen_five":
       if (data.isupload == "uploaded") {
         title_scr.classList.remove("up");
+        title_bgEle.classList.add("active");
         screen_fiveEle.classList.remove("active");
         screen_sixEle.classList.add("active");
         data.curr_screen = "screen_six";
@@ -150,7 +209,16 @@ function btnclick(ele) {
       break;
   }
 }
-
+const registerclick = () => {
+  title_scr.classList.add("up");
+  title_bgEle.classList.remove("active");
+  screen_threeEle.classList.remove("active");
+  screen_fourEle.classList.add("active");
+  data.curr_screen = "screen_four";
+  data.prev_screen = "screen_three";
+  screenbtnChange();
+};
+const discoverclick = () => {};
 //common functions
 const screenbtnChange = () => {
   data.prev_button = screen_button[data.prev_screen];
@@ -211,11 +279,12 @@ const languageToggleFunc = () => {
     .querySelector(".header .left #language img.ar")
     .classList.toggle("active");
   language = language == "en" ? "ar" : "en";
+  data.language = language;
 
   //reset on changing language
   titlePostfix = 1;
   coinPostFix = 1;
-
+  congratsPostfix = 1;
   //add sprite image class  based on langauge
   document.querySelector(".title-scr .title").classList.add(language);
   document.querySelector(".screen_two .coin").classList.add(language);
@@ -328,3 +397,29 @@ function framesupdate(addframes) {
       );
   }
 }
+
+const proceedFromCountrySelection = () => {
+  if (data.country === "" || data.country.length === 0) {
+    countryEle.parentElement.classList.add("error");
+    showError(
+      data.language == "en"
+        ? "Please select your country"
+        : "الرجاء اختيار بلدك"
+    );
+    return false;
+  } else {
+    return true;
+  }
+};
+
+const showError = (errorInfo) => {
+  errorInfo_Ele.innerHTML = errorInfo;
+  errorInfo_Ele.classList.add("active");
+  errorTO && clearTimeout(errorTO);
+  errorTO = setTimeout(() => {
+    errorInfo_Ele.classList.remove("active");
+    const ele = document.querySelector(".error");
+    console.log(ele);
+    ele?.classList.remove("error");
+  }, 1000);
+};

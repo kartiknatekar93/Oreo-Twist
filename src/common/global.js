@@ -49,12 +49,20 @@ const buttonImages = {
 };
 
 const country = {
-  0: "UAE",
-  1: "KSA",
-  2: "KWT",
-  3: "BAH",
-  4: "OMN",
-  5: "IRQ",
+  0: "bahrain",
+  1: "kwt",
+  2: "oman",
+  3: "uae",
+  4: "iraq",
+  5: "ksa",
+};
+const countryCodes = {
+  bahrain: "+973",
+  kwt: "+965",
+  oman: "+968",
+  uae: "+971",
+  iraq: "+964",
+  ksa: "+966",
 };
 
 const screen_button = {
@@ -68,4 +76,4 @@ const screen_button = {
   },
   screen_six: "backbtn",
 };
-export { Global, data, buttonImages, country, screen_button };
+export { Global, data, buttonImages, country, screen_button, countryCodes };

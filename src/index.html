@@ -1,6 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- Start of global snippet: Please do not remove Place this snippet between the
+    head tags on every page of your site.  -->
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=DC-9227341"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "DC-9227341");
+    </script>
+    <!-- End of global snippet: Please do not remove -->
+    <!-- Google Tag Manager -->
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({
+          "gtm.start": new Date().getTime(),
+          event: "gtm.js",
+        });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-NZZK8BL");
+    </script>
+    <!-- End Google Tag Manager -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
@@ -44,7 +78,14 @@
         </div>
       </div>
       <div class="title-scr">
-        <div class="title"></div>
+        <div class="title">
+          <div class="title-bg active">
+            <img
+              src="images/common/Stars-and-elemenst-behind-title.png"
+              alt=""
+            />
+          </div>
+        </div>
       </div>
       <div class="screen_one active">
         <div class="select-country">
@@ -53,12 +94,12 @@
             <option value="-1" style="text-align: left">
               Select a Country
             </option>
-            <option value="0">UAE</option>
-            <option value="1">KSA</option>
-            <option value="2">KWT</option>
-            <option value="3">BAH</option>
-            <option value="4">OMN</option>
-            <option value="5">IRQ</option>
+            <option value="0">Bahrain</option>
+            <option value="1">kuwait</option>
+            <option value="2">Oman</option>
+            <option value="3">UAE</option>
+            <option value="4">Saudi Arabia</option>
+            <option value="5">Iraq</option>
           </select>
         </div>
       </div>
@@ -72,6 +113,9 @@
         <div class="cookie-twist en">
           <div class="register">
             <img src="images/en/Register to win.png" alt="" />
+          </div>
+          <div class="discover">
+            <img src="images/en/Dicover Recipes.png" alt="" />
           </div>
         </div>
       </div>
@@ -198,5 +242,19 @@
         <div class="congrats"></div>
       </div>
     </div>
+    <div class="errorInfo"></div>
+    <div id="terms_sec">
+      <div class="close termsClose"></div>
+      <div class="content"></div>
+    </div>
+    <!-- Start of HubSpot Embed Code -->
+    <script
+      type="text/javascript"
+      id="hs-script-loader"
+      async
+      defer
+      src="//js.hs-scripts.com/22437010.js"
+    ></script>
+    <!-- End of HubSpot Embed Code -->
   </body>
 </html>

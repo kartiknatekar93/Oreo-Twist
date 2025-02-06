@@ -34,3 +34,36 @@ body {
   font-family: plutoregular;
   src: url("fonts/PlutoRegular.otf");
 }
+@font-face {
+  font-family: GE_SS;
+  src: url("fonts/GE_SS.otf");
+}
+
+.error {
+  position: relative;
+  animation: shake 0.13s linear;
+  animation-iteration-count: 3;
+}
+
+@mixin fadeanim($name) {
+  @keyframes #{$name} {
+    0% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+}
+@keyframes shake {
+  0% {
+    transform: translate3d(-0.5%, 0, 0);
+  }
+
+  100% {
+    transform: translate3d(0.5%, 0, 0);
+  }
+}
