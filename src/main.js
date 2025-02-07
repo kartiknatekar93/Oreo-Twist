@@ -16,6 +16,7 @@ let cookietwistPostfix = 1;
 let congratsPostfix = 1;
 let start_cookie_anim = false;
 let errorTO = null;
+const imageCount = 7;
 //DOM Elements
 let languageToggle = document.getElementById("language");
 let countryEle = document.getElementById("country-select");
@@ -35,6 +36,7 @@ let privacy_Ele = document.querySelectorAll(".privacy_trigger");
 let tc_Ele = document.querySelectorAll(".tc_trigger");
 let tc_closeEle = document.querySelector(".termsClose");
 let errorInfo_Ele = document.querySelector(".errorInfo");
+const container = document.getElementById("imageContainer");
 //local language detect
 let language = localStorage.getItem("language")
   ? localStorage.getItem("language")
@@ -66,6 +68,7 @@ window.onload = () => {
 
 const activatePage = () => {
   activateAnimation();
+  animatebgEle();
   privacy_Ele.forEach((trigger) => {
     trigger.addEventListener("click", () => {
       location.href = `./privacy-policy/${language}`;
@@ -422,4 +425,27 @@ const showError = (errorInfo) => {
     console.log(ele);
     ele?.classList.remove("error");
   }, 1000);
+};
+
+const animatebgEle = () => {
+  for (let i = 0; i < imageCount; i++) {
+    let img = document.createElement("img");
+    img.src = `images/common/BG-element_0${i + 1}.png`;
+    img.classList.add("image");
+    let startX = Math.random() * 90; // Random between 30vw and 70vw
+    img.style.left = `${startX}vw`;
+    img.style.bottom = "-100px";
+
+    // Assign small random X variations
+    img.style.setProperty("--x1", `${Math.random() * 6 - 2}vw`); // Small left/right shift
+    img.style.setProperty("--x2", `${Math.random() * 6 - 2}vw`);
+    img.style.setProperty("--x3", `${Math.random() * 6 - 2}vw`);
+    img.style.setProperty("--x4", `${Math.random() * 6 - 2}vw`);
+    img.style.setProperty("--x5", `${Math.random() * 6 - 2}vw`);
+
+    // Apply animation with random duration and delay
+    img.style.animation = `moveUp ${10 + Math.random() * 2}s linear infinite`;
+    img.style.animationDelay = `${Math.random() * 5}s`; // Random delay
+    container.appendChild(img);
+  }
 };
