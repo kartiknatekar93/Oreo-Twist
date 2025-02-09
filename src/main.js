@@ -36,7 +36,18 @@ let privacy_Ele = document.querySelectorAll(".privacy_trigger");
 let tc_Ele = document.querySelectorAll(".tc_trigger");
 let tc_closeEle = document.querySelector(".termsClose");
 let errorInfo_Ele = document.querySelector(".errorInfo");
-const container = document.getElementById("imageContainer");
+let container = document.getElementById("imageContainer");
+
+let proceedbtn_Ele=document.querySelector(".proceedbtn")
+let letsgobtn_Ele=document.querySelector(".letsgo");
+let nextbtn_Ele=document.querySelector(".nextbtn");
+let submit_activebtnEle=document.querySelector(".submit-active");
+let submit_inactivebtnEle=document.querySelector(".submit-inactive");
+let backbtn_Ele=document.querySelector(".backbtn");
+let completeRecipe_Ele=document.querySelector(".upload");
+let TornRecipe_Ele=document.querySelector(".torn-top");
+let UploadImg_Ele=document.querySelector(".image-upload");
+let UploadedImg_Ele=document.querySelector(".image-uploaded");
 //local language detect
 let language = localStorage.getItem("language")
   ? localStorage.getItem("language")
@@ -129,11 +140,17 @@ discover_textEle.addEventListener("click", function () {
 //DOM Elements Functions
 const selectCountry = (e) => {
   data.country = country[e.target.value];
+    if(data.country == "ksa"){
+      UploadImg_Ele.classList.add("active");
+    }else{
+      completeRecipe_Ele.classList.add("active");
+    }
 };
 
 //checks screen and decides to active the button for next screen
 // and deactive current screen
 function btnclick(ele) {
+  console.log(ele)
   switch (data.curr_screen) {
     case "screen_one":
       if (proceedFromCountrySelection()) {
@@ -174,7 +191,7 @@ function btnclick(ele) {
       break;
 
     case "screen_four":
-      if (data.issubmit) {
+      if (data.isformsubmit) {
         title_scr.classList.add("up");
         title_bgEle.classList.remove("active");
         screen_fourEle.classList.remove("active");
@@ -193,7 +210,7 @@ function btnclick(ele) {
       break;
 
     case "screen_five":
-      if (data.isupload == "uploaded") {
+      if (data.isupload=="uploaded") {
         title_scr.classList.remove("up");
         title_bgEle.classList.add("active");
         screen_fiveEle.classList.remove("active");
@@ -230,6 +247,30 @@ const screenbtnChange = () => {
     .querySelector(`.${screen_button[data.curr_screen]}`)
     .classList.add("active");
 };
+
+const LanguageChange=()=>{
+letsgobtn_Ele.src=buttonImages[data.language]["letsgo"];
+nextbtn_Ele.src=buttonImages[data.language]["nextbtn"];
+submit_activebtnEle.src=buttonImages[data.language]["submitActive"];
+submit_inactivebtnEle.src=buttonImages[data.language]["submitInactive"];
+backbtn_Ele.src=buttonImages[data.language]["backbtn"];
+proceedbtn_Ele.src=buttonImages[data.language]["proceedbtn"];
+completeRecipe_Ele.src=buttonImages[data.language]["completeRecipe"];
+TornRecipe_Ele.src=buttonImages[data.language]["TornRecipe"];
+UploadImg_Ele.src=buttonImages[data.language]["UploadImg"];
+UploadedImg_Ele.src=buttonImages[data.language]["UploadedImg"];
+}
+
+const uploadfunction=()=>{
+  data.isupload="uploaded";
+  document
+  .querySelector(`.${data.prev_button}`)
+  .classList.remove("active");
+document
+  .querySelector(`.${screen_button[data.curr_screen][data.isupload]}`)
+  .classList.add("active");
+}
+uploadfunction();
 
 //languagetoggle button click event
 languageToggle.addEventListener("click", () => {
@@ -292,6 +333,8 @@ const languageToggleFunc = () => {
   document.querySelector(".title-scr .title").classList.add(language);
   document.querySelector(".screen_two .coin").classList.add(language);
   document.querySelector(".screen_six .congrats").classList.add(language);
+
+  LanguageChange();
 };
 
 //frames update event

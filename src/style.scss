@@ -304,10 +304,10 @@
         background: url("images/common/Drop-down-arrow-head.png") no-repeat
           center;
         background-size: 100%;
-        width: min(3vw, 1.5vh);
-        height: 90%;
+        width: min(0.5vw,0.5vh);
+        // height: 50%;
         right: 8%;
-        padding: min(2vw, 2vh);
+        padding: min(1vw, 1vh);
       }
       select {
         // position: relative;
@@ -579,8 +579,9 @@
         width: min(50vw, 25vh);
         height: min(60vw, 30vh);
         transform: translateY(-33.5%);
-        &.inactive {
-          display: none;
+        display: none;
+        &.active {
+          display: block;
         }
         img {
           width: 100%;
@@ -618,8 +619,9 @@
         width: min(50vw, 25vh);
         height: min(60vw, 30vh);
         transform: translateY(-33.5%);
-        &.inactive {
-          display: none;
+        display: none;
+        &.active {
+          display: block;
         }
         img {
           width: 100%;

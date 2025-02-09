@@ -24,8 +24,8 @@ const data = {
   submitbtnclick: 0,
   registerbtnclick: 0,
   recipebtnclick: 0,
-  isupload: "uploaded",
-  issubmit: true,
+  isupload:"uploaded",
+  isformsubmit: true,
   iscookieanim: false,
 };
 
@@ -37,14 +37,22 @@ const buttonImages = {
     submitInactive: "images/en/Submit-button_Inactive.png",
     backbtn: "images/en/Back-button.png",
     proceedbtn: "images/en/proceed.png",
+    completeRecipe:"images/en/Complete-Receipt-with-text.png",
+    TornRecipe:"images/en/Torn-receipt_Top-same-size.png",
+    UploadImg:"images/en/Upload-oreo-pack-image.png",
+    UploadedImg:"images/en/Uploaded-oreo-pack-image_Same-size.png"
   },
   ar: {
-    letsgo: "images/ar/Let's-go-button.png",
+    letsgo: "images/ar/Lets-go-button.png",
     nextbtn: "images/ar/Next-button.png",
-    submitActive: "images/ar/Submit-button_Active.png",
-    submitInactive: "images/ar/Submit-button_Inactive.png",
+    submitActive: "images/ar/Submit-button.png",
+    submitInactive: "images/ar/Submit-button.png",
     backbtn: "images/ar/Back-button.png",
-    proceedbtn: "images/ar/proceed.png",
+    proceedbtn: "images/ar/Proceed-button.png",
+    completeRecipe:"images/ar/Complete-Receipt-with-text.png",
+    TornRecipe:"images/ar/Torn-receipt_Top-same-size.png",
+    UploadImg:"images/ar/Upload-oreo-pack-image.png",
+    UploadedImg:"images/ar/Uploaded-oreo-pack-image_Same-size.png"
   },
 };
 
