@@ -117,18 +117,29 @@
     .bg {
       width: 56vh;
       height: 100%;
-      background: url("images/common/BG.png") no-repeat center;
+      background: url("../public/images/common/BG.png") no-repeat center;
       background-size: cover;
+      @include for-mobile-portrait-screen {
+        width: 100%;
+      }
     }
   }
   .header {
-    display: flex;
+    display: none;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    width: calc(100% - min(4vw - 4vh));
+    width: 56vh;
     padding: min(2vw, 2vh);
     margin: auto;
+    opacity: 1;
+    z-index: 999;
+    &.active {
+      display: flex;
+    }
+    @include for-mobile-portrait-screen {
+      width: calc(100% - min(4vw, 4vh));
+    }
     .left {
       #language {
         position: relative;
@@ -161,6 +172,10 @@
           top: 0;
           left: 0;
           width: 100%;
+          display: none;
+          &.active {
+            display: block;
+          }
         }
       }
     }
@@ -168,11 +183,16 @@
   .button-section {
     position: fixed;
     left: 0;
-    top: 80%;
+    top: 83%;
     width: 100%;
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
+    opacity: 1;
+    z-index: 999;
+    &.active {
+      display: flex;
+    }
     .button {
       position: relative;
       width: min(60vw, 40vh);
@@ -236,6 +256,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+    opacity: 1;
     // display: none;
     &.active {
       display: block;
@@ -255,12 +276,12 @@
       margin: auto;
 
       &.en {
-        background-image: url("images/en/title-english.png");
+        background-image: url("../public/images/en/title-english.png");
         background-position: 0 0;
         background-size: 100%;
       }
       &.ar {
-        background-image: url("images/ar/title-arabic.png");
+        background-image: url("../public/images/ar/title-arabic.png");
         background-position: 0 0;
         background-size: 100%;
       }
@@ -283,13 +304,14 @@
   .screen_one {
     position: fixed;
     left: 0;
-    top: 30%;
+    top: 35%;
     width: 100%;
     height: 40%;
     display: none;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    opacity: 1;
     &.active {
       display: flex;
     }
@@ -301,12 +323,12 @@
       width: min(50vw, 35vh);
       #dropdownarrow {
         position: absolute;
-        background: url("images/common/Drop-down-arrow-head.png") no-repeat
-          center;
+        background: url("../public/images/common/Drop-down-arrow-head.png")
+          no-repeat center;
         background-size: 100%;
-        width: min(0.5vw,0.5vh);
+        width: min(0.5vw, 0.5vh);
         // height: 50%;
-        right: 8%;
+        right: 5%;
         padding: min(1vw, 1vh);
       }
       select {
@@ -320,13 +342,17 @@
         padding: min(1vw, 1vh);
         border-radius: 10px;
         text-align: center;
+
+        &.ar {
+          font-family: "GE_SS";
+        }
       }
     }
   }
   .screen_two {
     position: fixed;
     left: 0;
-    top: 40%;
+    top: 45%;
     width: 100%;
     height: 40%;
     display: none;
@@ -346,11 +372,11 @@
       display: flex;
       margin: auto;
       &.en {
-        background-image: url("images/en/gold-coin-en.png");
+        background-image: url("../public/images/en/gold-coin-en.png");
         background-size: 100%;
       }
       &.ar {
-        background-image: url("images/ar/gold-coin-ar.png");
+        background-image: url("../public/images/ar/gold-coin-ar.png");
         background-size: 100%;
       }
     }
@@ -358,7 +384,7 @@
   .screen_three {
     position: fixed;
     left: 0;
-    top: 30%;
+    top: 35%;
     width: 100%;
     height: 50%;
     display: none;
@@ -378,9 +404,15 @@
       &.active {
         display: block;
       }
+      &.ar {
+        font-family: "GE_SS";
+      }
       span {
         font-family: plutobold;
         text-transform: uppercase;
+        &.ar {
+          font-family: "GE_SS";
+        }
       }
     }
     .cookie-twist {
@@ -393,8 +425,8 @@
       display: flex;
       // margin: auto;
       &.en {
-        background-image: url("images/common/cookie-twist.png");
-        background-position: 0 calc(2.04081% * 0);
+        background-image: url("../public/images/common/cookie-twist.png");
+        background-position: 0 0;
         background-size: 100%;
       }
       .register {
@@ -425,12 +457,40 @@
           width: 100%;
         }
       }
+      .leftarrow {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: min(45vw, 20vh);
+        transform: translate(-30%, -40%);
+        display: none;
+        &.active {
+          display: block;
+        }
+        img {
+          width: 100%;
+        }
+      }
+      .rightarrow {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: min(45vw, 20vh);
+        transform: translate(20%, 70%);
+        display: none;
+        &.active {
+          display: block;
+        }
+        img {
+          width: 100%;
+        }
+      }
     }
   }
   .screen_four {
     position: fixed;
     left: 0;
-    top: 22%;
+    top: 27%;
     width: 100%;
     height: 60%;
     display: none;
@@ -448,10 +508,13 @@
         width: 100%;
         color: white;
         font-family: "plutoRegular";
-        direction: lft;
+        direction: ltr;
         font-size: min(3.5vw, 2vh);
         line-height: min(4vw, 2.5vh);
         padding-left: min(3vw, 1.5vh);
+        &.ar {
+          font-family: GE_SS;
+        }
       }
       .field {
         position: relative;
@@ -481,10 +544,13 @@
           border: none;
           color: black;
           font-family: "plutobold";
-          direction: lft;
+          direction: ltr;
           font-size: min(3.5vw, 2vh);
           line-height: min(8vw, 4.5vh);
           padding: 0 min(3vw, 1.5vh);
+          &.ar {
+            font-family: GE_SS;
+          }
         }
         &.error {
           border-color: #ff0000;
@@ -506,13 +572,20 @@
         margin: auto;
         margin-bottom: min(2vw, 1vh);
         gap: min(2vw, 1vh);
+        &.ar {
+          flex-direction: row-reverse;
+        }
         .label {
           width: min(80vw, 40vh);
           height: auto;
           color: #ffffff;
           font-family: plutolight;
-          direction: lft;
+          direction: ltr;
           font-size: min(2.5vw, 1.5vh);
+          &.ar {
+            font-family: GE_SS;
+            direction: rtl;
+          }
         }
 
         .checkbox {
@@ -554,7 +627,7 @@
   .screen_five {
     position: fixed;
     left: 0;
-    top: 25%;
+    top: 30%;
     width: 100%;
     height: 60%;
     display: none;
@@ -571,6 +644,18 @@
       align-items: flex-end;
       width: min(68vw, 34vh);
       height: min(80vh, 40vh);
+      #upload_input {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        cursor: pointer;
+        &.active {
+          display: block;
+        }
+      }
       img {
         width: 100%;
       }
@@ -609,6 +694,8 @@
         display: none;
         &.active {
           display: block;
+          transform: translateY(-33.5%);
+          animation: transform 1s ease-out;
         }
         img {
           width: 100%;
@@ -635,6 +722,8 @@
         display: none;
         &.active {
           display: block;
+          transform: translateY(-25%);
+          animation: transform 1s ease-out;
         }
         img {
           width: 100%;
@@ -645,7 +734,7 @@
   .screen_six {
     position: fixed;
     left: 0;
-    top: 40%;
+    top: 42%;
     width: 100%;
     height: 40%;
     display: none;
@@ -665,11 +754,11 @@
       display: flex;
       margin: auto;
       &.en {
-        background-image: url("images/en/congrats.png");
+        background-image: url("../public/images/en/congrats.png");
         background-size: 100%;
       }
       &.ar {
-        background-image: url("images/en/congrats.png");
+        background-image: url("../public/images/ar/congrats.png");
         background-size: 100%;
       }
     }
@@ -689,7 +778,7 @@
   width: min(70vw, 35vh);
   color: #ffffff;
   position: fixed;
-  bottom: 25%;
+  bottom: 20%;
   z-index: 10;
   opacity: 0;
 
@@ -701,6 +790,74 @@
   &.ar {
     font-family: "GE_SS";
   }
+}
+.loader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 56vh;
+  height: 100%;
+  background-color: #05236b;
+  margin: 0 auto;
+  z-index: 9999;
+  opacity: 1;
+  visibility: visible;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @include for-mobile-portrait-screen {
+    width: 100%;
+  }
+  .loadimg {
+    width: min(20vw, 10vh);
+    margin: 0 auto;
+
+    img {
+      width: 100%;
+    }
+  }
+}
+
+.loader.hidden {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease;
+}
+
+.spinner {
+  border: 6px solid #fff;
+  border-top: 6px solid #05236b;
+  border-radius: 50%;
+  width: 4vh;
+  height: 4vh;
+  animation: spin 1s linear infinite;
+  /* margin-bottom: 1vh; */
+  position: absolute;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  top: 55%;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.percentage {
+  color: #fff;
+  right: 0;
+  left: 0;
+  position: absolute;
+  margin: 0 auto;
+  width: 10%;
+  top: 60%;
+  font-family: plutobold;
 }
 
 //title-english-animation

@@ -13,36 +13,41 @@ body {
 
 @font-face {
   font-family: plutoblack;
-  src: url("fonts/PlutoBlack.otf");
+  src: url("../public/fonts/PlutoBlack.otf");
 }
 @font-face {
   font-family: plutobold;
-  src: url("fonts/PlutoBold.otf");
+  src: url("../public/fonts/PlutoBold.otf");
 }
 
 @font-face {
   font-family: plutoheavy;
-  src: url("fonts/PlutoHeavy.otf");
+  src: url("../public/fonts/PlutoHeavy.otf");
 }
 
 @font-face {
   font-family: plutolight;
-  src: url("fonts/PlutoLight.otf");
+  src: url("../public/fonts/PlutoLight.otf");
 }
 
 @font-face {
   font-family: plutoregular;
-  src: url("fonts/PlutoRegular.otf");
+  src: url("../public/fonts/PlutoRegular.otf");
 }
 @font-face {
   font-family: GE_SS;
-  src: url("fonts/GE_SS.otf");
+  src: url("../public/fonts/GE_SS.otf");
 }
 
 .error {
   position: relative;
   animation: shake 0.13s linear;
   animation-iteration-count: 3;
+}
+@mixin for-mobile-portrait-screen {
+  @media (max-width: 1024px) and (max-aspect-ratio: 13/10) {
+    @content;
+  }
 }
 
 @mixin fadeanim($name) {

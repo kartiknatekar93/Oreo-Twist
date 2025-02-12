@@ -17,34 +17,48 @@
 
       gtag("config", "DC-9227341");
     </script>
-    <!-- End of global snippet: Please do not remove -->
-    <!-- Google Tag Manager -->
-    <script>
-      (function (w, d, s, l, i) {
-        w[l] = w[l] || [];
-        w[l].push({
-          "gtm.start": new Date().getTime(),
-          event: "gtm.js",
-        });
-        var f = d.getElementsByTagName(s)[0],
-          j = d.createElement(s),
-          dl = l != "dataLayer" ? "&l=" + l : "";
-        j.async = true;
-        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
-        f.parentNode.insertBefore(j, f);
-      })(window, document, "script", "dataLayer", "GTM-NZZK8BL");
-    </script>
-    <!-- End Google Tag Manager -->
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <meta
+      charset="UTF-8"
+      content="width=device-width,minimum-scale=1,maximum-scale=1"
+      name="viewport"
+    />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="theme-color" content="#0dbdca" />
+    <title>Oreo - Twist on it</title>
+    <link rel="icon" href="" type="image/x-icon" />
+    <link
+      rel="icon"
+      type="image/ico"
+      href="https://oreostayplayful.com/fav-icon.png"
+    />
+    <meta
+      property="og:image"
+      content="https://oreostayplayful.com/Oreo-Thumbnail.png"
+    />
+    <meta property="og:type" content="product" />
+    <meta property="og:title" content="Oreo - Twist on it" />
+    <meta name="author" content="Oreo" />
+    <meta property="fb:app_id" content="1920754461332610" />
+    <meta
+      property="og:description"
+      content="Enter your details to win exciting prizes and discover Oreo recipes to make your Ramadan and Eid more joyful"
+    />
     <script type="module" src="./main.js"></script>
+    <style>
+      .header,
+      .button-section,
+      .title-scr,
+      .screen_one {
+        opacity: 0;
+      }
+    </style>
   </head>
   <body>
     <div class="bgEle-container" id="imageContainer"></div>
     <div class="container">
       <div class="background-img">
-        <div class="bg"></div>
+        <div class="bg data-bg"></div>
       </div>
       <header class="header">
         <div class="left">
@@ -56,7 +70,11 @@
         <div class="right">
           <div class="audio">
             <img src="images/common/Volume-on.png" class="audio-on" alt="" />
-            <img src="images/common/Volume-off.png" class="audio-off" alt="" />
+            <img
+              src="images/common/Volume-off.png"
+              class="audio-off active"
+              alt=""
+            />
           </div>
         </div>
       </header>
@@ -79,7 +97,7 @@
         </div>
       </div>
       <div class="title-scr">
-        <div class="title">
+        <div class="title en data-bg">
           <div class="title-bg active">
             <img
               src="images/common/Stars-and-elemenst-behind-title.png"
@@ -88,35 +106,51 @@
           </div>
         </div>
       </div>
-      <div class="screen_one active">
+      <div class="screen_one">
         <div class="select-country">
           <div id="dropdownarrow"></div>
-          <select name="" id="country-select">
-            <option value="-1" style="text-align: left">
-              Select a Country
-            </option>
+          <select name="" class="country-select">
+            <option value="-1">Select a Country</option>
             <option value="0">Bahrain</option>
             <option value="1">kuwait</option>
             <option value="2">Oman</option>
             <option value="3">UAE</option>
             <option value="4">Iraq</option>
             <option value="5">Saudi Arabia</option>
+            <option value="6">Qatar</option>
           </select>
         </div>
       </div>
       <div class="screen_two">
-        <div class="coin"></div>
+        <div class="coin en data-bg"></div>
       </div>
       <div class="screen_three">
         <div class="reveal_text active">
-          Twist the <br /><span>oreo cookie</span> <br />to reveal your options
+          Twist the <br /><span style="font-family: plutobold"
+            >oreo cookie</span
+          >
+          <br />to reveal your options
         </div>
-        <div class="cookie-twist en">
+        <div class="cookie-twist en data-bg">
           <div class="register">
-            <img src="images/en/Register to win.png" alt="" />
+            <img
+              src="images/en/Register to win.png"
+              class="registerimg"
+              alt=""
+            />
           </div>
           <div class="discover">
-            <img src="images/en/Dicover Recipes.png" alt="" />
+            <img
+              src="images/en/Discover-Recipes.png"
+              class="discoverimg"
+              alt=""
+            />
+          </div>
+          <div class="leftarrow">
+            <img src="images/en/Left-arrow_Eng.png" class="leftimg" alt="" />
+          </div>
+          <div class="rightarrow">
+            <img src="images/en/Right-arrow_Eng.png" class="rightimg" alt="" />
           </div>
         </div>
       </div>
@@ -152,12 +186,12 @@
               autocomplete="off"
               maxlength="11"
             />
-            <div class="code">1234</div>
+            <div class="code"></div>
           </div>
         </div>
         <div class="bottom">
           <div class="age_check">
-            <div class="checkbox">
+            <div class="checkbox agecheck">
               <img src="images/common/Non-Tick-box.png" id="age_check" alt="" />
               <img
                 src="images/common/Tick-box.png"
@@ -170,7 +204,7 @@
             <div class="label">I agree that I am above 13 years of age</div>
           </div>
           <div class="tc_check">
-            <div class="checkbox">
+            <div class="checkbox tccheck">
               <img src="images/common/Non-Tick-box.png" id="tc_check" alt="" />
               <img
                 src="images/common/Tick-box.png"
@@ -184,12 +218,12 @@
               I accept the <u class="tc_trigger">T&C</u> and
               <u class="privacy_trigger">Privacy Notice</u> of Mondelez and
               consent to Mondelez using my personal information as stated in the
-              <u class="tc_trigger">T&Cs</u> and
+              <u class="tc_triggers">T&Cs</u> and
               <u class="privacy_trigger">Privacy Notice</u>.
             </div>
           </div>
           <div class="promotion_check">
-            <div class="checkbox">
+            <div class="checkbox promotioncheck">
               <img
                 src="images/common/Non-Tick-box.png"
                 id="promotion_check"
@@ -237,25 +271,44 @@
             class="image-uploaded"
             alt=""
           />
+          <input
+            type="file"
+            name=""
+            id="upload_input"
+            accept=".doc,.docx,.pdf,image/*"
+          />
         </div>
       </div>
       <div class="screen_six">
-        <div class="congrats"></div>
+        <div class="congrats en data-bg"></div>
       </div>
     </div>
     <div class="errorInfo"></div>
+    <div class="loader">
+      <div class="loadimg">
+        <img src="images/common/Loader-icon.png" alt="" />
+      </div>
+      <div class="spinner"></div>
+      <div class="percentage">0%</div>
+    </div>
     <div id="terms_sec">
       <div class="close termsClose"></div>
       <div class="content"></div>
     </div>
+    <audio
+      src="images/common/BGMLoop.mp3"
+      playsinline
+      id="BGMusic"
+      loop
+    ></audio>
     <!-- Start of HubSpot Embed Code -->
-    <!-- <script
+    <script
       type="text/javascript"
       id="hs-script-loader"
       async
       defer
-      src="//js.hs-scripts.com/22437010.js"
-    ></script> -->
+      src="//js.hs-scripts.com/22375174.js"
+    ></script>
     <!-- End of HubSpot Embed Code -->
   </body>
 </html>
