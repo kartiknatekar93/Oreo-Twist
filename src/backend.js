@@ -26,6 +26,7 @@ const saveCountry = () => {
 };
 
 const saveClick = (clickname) => {
+  // console.log(clickname);
   Global.serverObj.send(Global.URL_VUPDATE, null, null, {
     saveType: clickname,
     uniqID: Global.U_ID,

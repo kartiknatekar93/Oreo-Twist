@@ -8,6 +8,7 @@ import {
   screen_button,
   countryCodes,
   errorMapping,
+  languagedata,
 } from "./common/global";
 import { createUser, saveClick, saveCountry } from "./backend";
 import { isMobile, isMobileOnly } from "mobile-device-detect";
@@ -323,7 +324,6 @@ const activateelements = () => {
 
       case "screen_five":
         if (data.isupload == "uploaded" && !data.imageuploaded) {
-          document.querySelector(".loader").classList.remove("hidden");
           proceedFromReceiptUpload(true);
         }
         break;
@@ -407,6 +407,7 @@ const activateelements = () => {
     leftEleImg.src = buttonImages[data.language]["leftarrowImg"];
     rightEleImg.src = buttonImages[data.language]["RightarrowImg"];
     changelanguageText();
+    saveClick(languagedata[data.language]);
   };
 
   const changelanguageText = () => {
@@ -524,11 +525,21 @@ const activateelements = () => {
   async function uploadFile() {
     const fileInput = document.getElementById("upload_input");
     const file = fileInput.files[0];
-    console.log(file);
+
     if (!file) {
       return;
     }
-
+    if (file && !file.type.startsWith("image/")) {
+      showError(
+        data.language == "en"
+          ? errorMapping.error10.en
+          : errorMapping.error10.ar
+      );
+      fileInput.value = "";
+      resetfileupload();
+      return;
+    }
+    document.querySelector(".loader").classList.remove("hidden");
     const formData = new FormData();
     formData.append("file", file);
     formData.append("gameTry", data.gameTry);
@@ -538,8 +549,8 @@ const activateelements = () => {
       method: "POST",
       body: formData,
     }).then((response) => {
+      // console.log(response);
       if (response.ok) {
-        document.querySelector(".loader").classList.add("hidden");
         saveClick("submitClick");
         title_scr.classList.remove("up");
         title_bgEle.classList.add("active");
@@ -556,10 +567,45 @@ const activateelements = () => {
           .classList.add("active");
         data.imageuploaded = true;
         fileInput.value = "";
+        document.querySelector(".loader").classList.add("hidden");
       } else {
+        showError(
+          data.language == "en"
+            ? errorMapping.error10.en
+            : errorMapping.error10.ar
+        );
+        fileInput.value = "";
+        resetfileupload();
+        return;
       }
     });
   }
+
+  const resetfileupload = () => {
+    document
+      .querySelector(`.${screen_button[data.curr_screen][data.isupload]}`)
+      .classList.remove("active");
+    data.isupload = "upload";
+    document
+      .querySelector(`.${screen_button[data.curr_screen][data.isupload]}`)
+      .classList.add("active");
+    if (data.country == "ksa") {
+      document
+        .querySelector(".upload-recipe .image-upload")
+        .classList.add("active");
+      document
+        .querySelector(".upload-recipe .image-uploaded")
+        .classList.remove("active");
+    } else {
+      document.querySelector(".upload-recipe .upload").classList.add("active");
+      document
+        .querySelector(".upload-recipe .torn-bottom")
+        .classList.remove("active");
+      document
+        .querySelector(".upload-recipe .torn-top")
+        .classList.remove("active");
+    }
+  };
 
   //languagetoggle button click event
   languageToggle.addEventListener("click", () => {
@@ -708,7 +754,7 @@ const activateelements = () => {
       );
       return false;
     } else if (registerMobile.length < 7 || registerMobile.length > 11) {
-      console.log("limit worng");
+      // console.log("limit worng");
       document
         .querySelector(".register_content #mobile")
         .parentElement.classList.add("error");
@@ -753,7 +799,7 @@ const activateelements = () => {
     errorTO = setTimeout(() => {
       errorInfo_Ele.classList.remove("active");
       const ele = document.querySelector(".error");
-      console.log(ele);
+      // console.log(ele);
       ele?.classList.remove("error");
     }, 2000);
   };
@@ -783,8 +829,8 @@ const activateelements = () => {
     let tempData = null;
     var ga_cid = "1844306653.1689247851";
     ga_cid = getCookie2("_ga");
-    console.log(ga_cid);
-    console.log(document.cookie);
+    // console.log(ga_cid);
+    // console.log(document.cookie);
     if (typeof ga_cid === "undefined" || ga_cid === null) {
       ga_cid = "1844306653.1689247851";
     }

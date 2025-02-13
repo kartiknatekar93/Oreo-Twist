@@ -38,7 +38,7 @@ export class Server {
         fullObj = _data;
       }
     }
-    console.log(fullObj);
+    // console.log(fullObj);
     _type = _type == undefined ? "POST" : _type;
     _dataType = _dataType == undefined ? null : _dataType;
     $.ajax({

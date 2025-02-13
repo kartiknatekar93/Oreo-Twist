@@ -69,6 +69,11 @@ const buttonImages = {
   },
 };
 
+const languagedata = {
+  en: "english",
+  ar: "arabic",
+};
+
 const country = {
   0: "bahrain",
   1: "kwt",
@@ -150,4 +155,5 @@ export {
   screen_button,
   countryCodes,
   errorMapping,
+  languagedata,
 };
