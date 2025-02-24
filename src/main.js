@@ -428,6 +428,8 @@ const activateelements = () => {
         "Iraq";
       document.querySelector(".country-select option:nth-child(7)").innerHTML =
         "Saudi Arabia";
+      document.querySelector(".country-select option:nth-child(8)").innerHTML =
+        "Qatar";
       document.querySelector(".reveal_text").innerHTML =
         "Twist the <br /><span>oreo cookie</span> <br />to reveal your options";
       document.querySelector(".reveal_text span").classList.remove("ar");
@@ -481,6 +483,8 @@ const activateelements = () => {
         "العراق";
       document.querySelector(".country-select option:nth-child(7)").innerHTML =
         "المملكة العربية السعودية";
+      document.querySelector(".country-select option:nth-child(8)").innerHTML =
+        "قطر";
       document.querySelector(".reveal_text").innerHTML =
         "فك<br/><span>بسكويت أوريو</span> <br />لاكتشاف خياراتك";
       document.querySelector(".reveal_text span").classList.add("ar");
@@ -834,7 +838,7 @@ const activateelements = () => {
     if (typeof ga_cid === "undefined" || ga_cid === null) {
       ga_cid = "1844306653.1689247851";
     }
-
+    console.log(ga_cid);
     window.htk = "";
     window.htk = getCookie("hubspotutk");
     Global.serverObj.send(Global.URL_WS, onApiResponse, null, {
@@ -857,6 +861,7 @@ const activateelements = () => {
   };
   const onApiResponse = (v) => {
     v = JSON.parse(v);
+    console.log(v);
     if (v["code"] == 200) {
       document.querySelector(".loader").classList.add("hidden");
       data.formsubmitted = true;
