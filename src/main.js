@@ -12,6 +12,16 @@ import {
 } from "./common/global";
 import { createUser, saveClick, saveCountry } from "./backend";
 import { isMobile, isMobileOnly } from "mobile-device-detect";
+import {
+  floodlightDiscover,
+  floodlightLanded,
+  floodlightProceed,
+  floodlightletsgo,
+  floodlightnext,
+  floodlightreceipt,
+  floodlightsubmitRegistration,
+  floodlightregister,
+} from "./floodlight";
 let titlePostfix = 1;
 let coinPostFix = 1;
 let cookietwistPostfix = 1;
@@ -98,8 +108,17 @@ window.onload = () => {
   const urlParams = new URLSearchParams(queryString);
   let utm_source = urlParams.get("utm_source");
   createUser(utm_source);
+  var ga_cid = "1844306653.1689247851";
+  ga_cid = getCookie2("_ga");
+  if (typeof ga_cid === "undefined" || ga_cid === null) {
+    ga_cid = "1844306653.1689247851";
+  }
+  console.log(ga_cid);
+  window.htk = "";
+  window.htk = getCookie("hubspotutk");
   activatePage();
   animatebgEle();
+  floodlightLanded(data.language);
 };
 const activatePage = () => {
   activateelements();
@@ -198,10 +217,12 @@ const activateelements = () => {
   //register click listner
   register_textEle.addEventListener("click", function () {
     registerclick();
+    floodlightregister(data.language, data.country);
   });
   //discover recipe click listner
   discover_textEle.addEventListener("click", function () {
     discoverclick();
+    floodlightDiscover(data.language, data.country);
   });
   age_checkBtnEle.addEventListener("click", function () {
     data.isage_check = !data.isage_check;
@@ -270,6 +291,7 @@ const activateelements = () => {
         if (proceedFromCountrySelection()) {
           saveCountry();
           saveClick("proceedClick");
+          floodlightProceed(data.language, data.country);
           setTerms();
           screen_oneEle.classList.remove("active");
           screen_twoEle.classList.add("active");
@@ -282,6 +304,7 @@ const activateelements = () => {
 
       case "screen_two":
         saveClick("letsgoClick");
+        floodlightletsgo(data.language, data.country);
         title_scr.classList.add("up");
         title_bgEle.classList.remove("active");
         screen_twoEle.classList.remove("active");
@@ -294,6 +317,7 @@ const activateelements = () => {
       case "screen_three":
         if (!data.iscookieanim) {
           saveClick("nextClick");
+          floodlightnext(data.language, data.country);
           title_bgEle.classList.remove("active");
           start_cookie_anim = true;
           reveal_textEle.classList.remove("active");
@@ -427,9 +451,9 @@ const activateelements = () => {
       document.querySelector(".country-select option:nth-child(6)").innerHTML =
         "Iraq";
       document.querySelector(".country-select option:nth-child(7)").innerHTML =
-        "Saudi Arabia";
-      document.querySelector(".country-select option:nth-child(8)").innerHTML =
-        "Qatar";
+        "KSA";
+      // document.querySelector(".country-select option:nth-child(8)").innerHTML =
+      //   "Qatar";
       document.querySelector(".reveal_text").innerHTML =
         "Twist the <br /><span>oreo cookie</span> <br />to reveal your options";
       document.querySelector(".reveal_text span").classList.remove("ar");
@@ -483,8 +507,8 @@ const activateelements = () => {
         "العراق";
       document.querySelector(".country-select option:nth-child(7)").innerHTML =
         "المملكة العربية السعودية";
-      document.querySelector(".country-select option:nth-child(8)").innerHTML =
-        "قطر";
+      // document.querySelector(".country-select option:nth-child(8)").innerHTML =
+      //   "قطر";
       document.querySelector(".reveal_text").innerHTML =
         "فك<br/><span>بسكويت أوريو</span> <br />لاكتشاف خياراتك";
       document.querySelector(".reveal_text span").classList.add("ar");
@@ -556,6 +580,7 @@ const activateelements = () => {
       // console.log(response);
       if (response.ok) {
         saveClick("submitClick");
+        floodlightreceipt(data.language, data.country);
         title_scr.classList.remove("up");
         title_bgEle.classList.add("active");
         screen_fiveEle.classList.remove("active");
@@ -877,6 +902,10 @@ const activateelements = () => {
       document
         .querySelector(`.${screen_button[data.curr_screen][data.isupload]}`)
         .classList.add("active");
+      fbq("track", "CompleteRegistration");
+      snaptr("track", "SIGN_UP");
+      ttq.instance("CUTLICJC77U6K9SI37F0").track("CompleteRegistration");
+      floodlightsubmitRegistration(data.language, data.country);
     }
   };
 };

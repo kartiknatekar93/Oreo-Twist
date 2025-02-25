@@ -125,6 +125,7 @@
     }
   }
   .header {
+    position: relative;
     display: none;
     flex-direction: row;
     align-items: center;
@@ -448,7 +449,7 @@
         bottom: 0;
         right: 0;
         width: min(27vw, 12vh);
-        transform: translate(-23%, -45%);
+        transform: translate(-13%, -45%);
         display: none;
         &.active {
           display: block;
