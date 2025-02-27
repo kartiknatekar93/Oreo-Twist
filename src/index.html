@@ -229,12 +229,103 @@ Place this snippet between the head tags on every page of your site.
       content="Enter your details to win exciting prizes and discover Oreo recipes to make your Ramadan and Eid more joyful"
     />
     <script type="module" src="./main.js"></script>
+    <script type="module" src="./index.js"></script>
     <style>
       .header,
       .button-section,
       .title-scr,
       .screen_one {
         opacity: 0;
+      }
+
+      @font-face {
+        font-family: ArabMedium;
+        src: url("fonts/GE\ Cap\ Medium.otf");
+      }
+
+      @font-face {
+        font-family: ArabBold;
+        src: url("fonts/GE\ SS\ Text\ Bold.otf");
+      }
+
+      @font-face {
+        font-family: ArabMedium1;
+        src: url("fonts/GE\ SS\ Text\ Medium.otf");
+      }
+
+      @font-face {
+        font-family: Plutoblack;
+        src: url("fonts/PlutoBlack.otf");
+      }
+
+      @font-face {
+        font-family: Plutobold;
+        src: url("fonts/PlutoBold.otf");
+      }
+
+      @font-face {
+        font-family: Plutoheavy;
+        src: url("fonts/PlutoHeavy.otf");
+      }
+
+      @font-face {
+        font-family: Plutolight;
+        src: url("fonts/PlutoLight.otf");
+      }
+
+      @font-face {
+        font-family: Plutoregular;
+        src: url("fonts/PlutoRegular.otf");
+      }
+
+      .container2 {
+        background-image: url(assets/BG-landing-page.png);
+      }
+
+      #secondpage {
+        background-image: url(assets/Dark-bg-for-instructions.png);
+      }
+
+      #recipepage1 #leftanima {
+        width: 38vh;
+        height: 23.8vh;
+        background-image: url("assets/leftwritten.png");
+        top: 24%;
+        position: absolute;
+      }
+
+      #leftanima .twistleft {
+        position: absolute;
+        top: 20%;
+        left: 4%;
+        width: 42%;
+        height: 50%;
+        z-index: 2;
+      }
+
+      #recipepage1 #rightanima {
+        width: 38vh;
+        height: 23.8vh;
+        background-image: url("assets/rightwritten.png");
+        top: 24%;
+        position: absolute;
+      }
+
+      #rightanima .twistright {
+        position: absolute;
+        top: 20%;
+        right: 4%;
+        width: 42%;
+        height: 50%;
+        z-index: 2;
+      }
+
+      #recipepage1 #leftright {
+        width: 38vh;
+        height: 23.8vh;
+        background-image: url("assets/lefttoright.png");
+        top: 24%;
+        position: absolute;
       }
     </style>
   </head>
@@ -305,7 +396,7 @@ Place this snippet between the head tags on every page of your site.
           <img src="images/en/proceed.png" class="proceedbtn active" alt="" />
         </div>
       </div>
-      <div class="title-scr">
+      <div class="title-scr active">
         <div class="title en data-bg">
           <div class="title-bg active">
             <img
@@ -490,6 +581,395 @@ Place this snippet between the head tags on every page of your site.
       </div>
       <div class="screen_six">
         <div class="congrats en data-bg"></div>
+      </div>
+    </div>
+    <div class="container2" style="display: none">
+      <div class="logo">
+        <img style="width: 100%" src="assets/Oreo-logo.png" alt="logoimage" />
+      </div>
+      <div class="lang-switch">
+        <span id="englishtext" class="lang-text">EN</span>
+        <span id="arabtext" class="lang-text">AR</span>
+      </div>
+
+      <div id="firstpage" style="display: flex">
+        <div class="firstpagecontainer">
+          <div class="titleimg">
+            <img style="width: 100%" src="assets/Title.png" alt="titleimage" />
+          </div>
+        </div>
+      </div>
+
+      <div id="secondpage" style="display: none">
+        <div id="leftcokie">
+          <img
+            style="width: 100%"
+            src="assets/Left-cookie_Instruction.png"
+            alt=""
+          />
+        </div>
+        <div id="rightcokie">
+          <img
+            style="width: 100%"
+            src="assets/Right-cookie_Instruction.png"
+            alt=""
+          />
+        </div>
+
+        <div class="secondpagecontainer">
+          <div class="instruct1">
+            <img
+              style="width: 100%"
+              src="assets/Instruction-text.png"
+              alt="instructionimage1"
+            />
+          </div>
+          <div class="instructionblock" style="display: block">
+            <span class="text1"> Gather the ingredient </span>
+            <div class="star1">
+              <img style="width: 10%" src="assets/Seperator.png" alt="" />
+            </div>
+            <span class="text2">
+              Let the creme guide you <br />
+              through every step
+            </span>
+            <div class="star2">
+              <img style="width: 10%" src="assets/Seperator.png" alt="" />
+            </div>
+            <span class="text3">
+              Finish with desserts <br />
+              with a oreo twist
+            </span>
+          </div>
+          <div class="letsgobtn">
+            <img style="width: 100%" src="assets/Let's-go.png" alt="letsgo" />
+          </div>
+        </div>
+      </div>
+
+      <div id="selectionpage" style="display: none">
+        <div class="backbtn" id="selectionbckbtn">
+          <img style="width: 100%" src="assets/Back.png" alt="" />
+        </div>
+        <div class="homebtn" id="selectionhmbtn">
+          <img style="width: 100%" src="assets/Home.png" alt="" />
+        </div>
+        <div class="selectionpagecontainer">
+          <div class="withoutscrolldiv">
+            <div class="withscrolldiv">
+              <img
+                id="smores"
+                style="width: 100%"
+                src="assets/OREO-Smores.png"
+                alt=""
+              />
+              <img
+                id="pistachio"
+                style="width: 100%"
+                src="assets/OREO-Pistachio-Kunafa-Cookie.png"
+                alt=""
+              />
+              <img
+                id="Strawberry"
+                style="width: 100%"
+                src="assets/Strawberry.png"
+                alt=""
+              />
+              <img
+                id="peanut"
+                style="width: 100%"
+                src="assets/OREO-Peanut-Butter-Truffles.png"
+                alt=""
+              />
+              <img
+                id="Fudge"
+                style="width: 100%"
+                src="assets/OREO-Fudge-Squares.png"
+                alt=""
+              />
+              <img
+                id="belvita"
+                style="width: 100%"
+                src="assets/OREO-BELVITA-Banoffee-Pie-Cups.png"
+                alt=""
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="instructionpage" style="display: none">
+        <div class="backbtn" id="instructionbckbtn">
+          <img style="width: 100%" src="assets/Back.png" alt="" />
+        </div>
+        <div class="homebtn" id="instructionhmbtn">
+          <img style="width: 100%" src="assets/Home.png" alt="" />
+        </div>
+        <div class="instructionpagecontainer">
+          <div class="getyour">
+            GET YOUR<br />
+            INGREDIENTS READY
+          </div>
+          <div class="ingredientsimg">
+            <img
+              style="width: 100%"
+              src="assets/English-Ingredients.png"
+              alt="englishingredientsimage"
+            />
+          </div>
+          <div class="allsetbtn">
+            <img style="width: 100%" src="assets/All-set-button.png" alt="" />
+          </div>
+        </div>
+      </div>
+      <div id="recipepage1" style="display: none">
+        <div class="backbtn" id="reciepebckbtn">
+          <img style="width: 100%" src="assets/Back.png" alt="" />
+        </div>
+        <div class="homebtn" id="recipehomebtn">
+          <img style="width: 100%" src="assets/Home.png" alt="" />
+        </div>
+        <div class="yougotthis" style="display: none">
+          <img style="width: 100%" src="assets/You-got-this_E.png" alt="" />
+        </div>
+        <div class="together" style="display: none">
+          <img
+            style="width: 100%"
+            src="assets/Its-coming-together_E.png"
+            alt=""
+          />
+        </div>
+        <div class="twistonitbtn">
+          <img style="width: 100%" src="assets/Twist-on-it.png" alt="" />
+        </div>
+        <div class="cokiename">OREO SMORE'S</div>
+        <div
+          class="oreo-left-to-right-01"
+          id="leftright"
+          style="display: block"
+        ></div>
+
+        <div class="oreo-left-01" id="leftanima" style="display: none">
+          <div class="twistleft" style="display: none">
+            <img style="width: 100%" src="" alt="" />
+          </div>
+        </div>
+        <div class="oreo-right-01" id="rightanima" style="display: none">
+          <div class="twistright" style="display: none">
+            <img style="width: 100%" src="" alt="" />
+          </div>
+        </div>
+        <div class="commonline">
+          LET ME TAKE YOU <br />
+          TO WHATS NEXT
+        </div>
+        <div class="recipepage1container">
+          <div class="descriptiondiv1" style="display: none">
+            <div class="scrolldiv1" style="display: none">
+              <div class="Otext1">1. Preheat your oven to 180 degrees</div>
+              <div class="Otext2">
+                2. Line your split Oreo’s cream side up on a baking tray
+              </div>
+            </div>
+            <div class="scrolldiv2" style="display: none">
+              <div class="Otext3">
+                1. Cut chocolate into chunks & place them on Oreo cream
+              </div>
+            </div>
+            <div class="scrolldiv3" style="display: none">
+              <div class="Otext4">
+                1. After toping Oreo with Marshmallow, close it with remaining
+                Oreo half
+              </div>
+              <div class="Otext5">
+                2. Bake for 5mins & enjoy your gooey Oreo Smores
+              </div>
+            </div>
+          </div>
+
+          <div class="descriptiondiv2" style="display: none">
+            <div class="scrolldiv1" style="display: none">
+              <div class="Dtext1">1. Preheat your oven to 180 degrees</div>
+              <div class="Dtext2">
+                2. Line your split Oreo’s cream side up on a baking tray
+              </div>
+            </div>
+            <div class="scrolldiv2" style="display: none">
+              <div class="Dtext3">
+                1. After taking 50g of Kunafa dough, add a tbsp of melted butter
+                on top
+              </div>
+              <div class="Dtext4">
+                2. Bake for 15 minutes until golden. After that let it COOL
+              </div>
+            </div>
+            <div class="scrolldiv3" style="display: none">
+              <div class="Dtext5">
+                1. Add 25g to 50g of pistachio paste to a piping bag and cut the
+                tip. If you don’t have a piping bag you can also use a spoon.
+              </div>
+            </div>
+            <div class="scrolldiv4" style="display: none">
+              <div class="Dtext6">
+                1. Line your split Oreos cream side up on a tray and pipe or
+                place a large tbsp of pistachio paste in the middle.
+              </div>
+              <div class="Dtext7">
+                2. Top with Kunafa crumvle and top with the remaining Oreo half
+                to make a sandwich & Enjoy
+              </div>
+              <div class="Dtext8">3. Addition:Sprinkle toastes pistachios</div>
+            </div>
+          </div>
+
+          <div class="descriptiondiv3" style="display: none">
+            <div class="scrolldiv1" style="display: none"></div>
+            <div class="scrolldiv2" style="display: none">
+              <div class="Stext1">
+                1. Add 50g of peanut butter and 50g of cream cheese to your
+                crushed Oreos and form into a dough.
+              </div>
+              <div class="Stext2">
+                2. Dough might be sticky, pop it in the fridge for 5 min to
+                ensure better handling
+              </div>
+            </div>
+            <div class="scrolldiv3" style="display: none">
+              <div class="Stext3">
+                1. Spread your dough into a bottom of a cake or tart pan with a
+                removable base
+              </div>
+            </div>
+            <div class="scrolldiv4" style="display: none">
+              <div class="Stext4">
+                1. Add a layer of 4 tsbp of Strawberry jam.
+              </div>
+            </div>
+            <div class="scrolldiv5" style="display: none">
+              <div class="Stext5">
+                1. In a bowl, soften 250g of cream cheese, and add 100g of
+                softly whipped cream and 40g of icing sugar to the cream cheese.
+              </div>
+              <div class="Stext6">
+                2. Mix well until smooth and add a teaspoon of vanilla extract.
+              </div>
+              <div class="Stext7">
+                3. Spread the cheesecake mixture into the base and freeze for 30
+                min.
+              </div>
+              <div class="Stext8">
+                4. Decorate with Strawberries & Oreo to WOW your guests
+              </div>
+            </div>
+          </div>
+
+          <div class="descriptiondiv4" style="display: none">
+            <div class="scrolldiv1" style="display: none"></div>
+            <div class="scrolldiv2" style="display: none">
+              <div class="Ptext1">
+                1. Add 50g of peanut butter and 50g of cream cheese to your
+                crushed Oreos and form into a dough.
+              </div>
+              <div class="Ptext2">
+                2. Dough might be sticky, pop it in the fridge for 5 min to
+                ensure better handling
+              </div>
+            </div>
+            <div class="scrolldiv3" style="display: none">
+              <div class="Ptext3">
+                1. Roll your dough into bitesize balls Freeze for 10 min
+              </div>
+            </div>
+            <div class="scrolldiv4" style="display: none">
+              <div class="Ptext4">
+                1. Dip into your meltedchocolate of choice and enjoy your Peanut
+                Butter Oreo Truffles
+              </div>
+            </div>
+          </div>
+
+          <div class="descriptiondiv5" style="display: none">
+            <div class="scrolldiv1" style="display: none">
+              <div class="Ftext1">
+                1. Line a square baking tray with parchement paper and keep the
+                crushed Oreo on the side.
+              </div>
+            </div>
+            <div class="scrolldiv2" style="display: none">
+              <div class="Ftext2">
+                1. Add 1 tbsp of melted butterand mix it into the oreos.
+              </div>
+            </div>
+            <div class="scrolldiv3" style="display: none">
+              <div class="Ftext3">
+                1. Add 1 can of condesned milk to 400g of Dark chocolate to a
+                bowl
+              </div>
+              <div class="Ftext4">2. Melt in the microwave.</div>
+            </div>
+            <div class="scrolldiv4" style="display: none">
+              <div class="Ftext5">
+                1. Add your crushed Oreos into the bowl with melted chocolate
+                and condesned milk and mix well.
+              </div>
+              <div class="Ftext6">2. Pour the mixture into square tray</div>
+              <div class="Ftext7">
+                3. Decorate the top with Golden Oreos and Milk Oreos and let it
+                cool in the fridge for 30min.
+              </div>
+              <div class="Ftext8">
+                4. Cut into squares, drizzle with caramel and enjoy your Oreo
+                Fudge Squares
+              </div>
+            </div>
+          </div>
+
+          <div class="descriptiondiv6" style="display: none">
+            <div class="scrolldiv1" style="display: none">
+              <div class="Btext1">
+                1. Take some nice serving cupsand sprinkle a good layer oforeo
+                crumble to thebottom.
+              </div>
+            </div>
+            <div class="scrolldiv2" style="display: none">
+              <div class="Btext2">
+                1. Add 1 tbsp of melted butterand mix it into the oreos.
+              </div>
+            </div>
+            <div class="scrolldiv3" style="display: none">
+              <div class="Btext3">
+                1. Add a layer of caramel on top of the crushed Oreo
+              </div>
+            </div>
+            <div class="scrolldiv4" style="display: none">
+              <div class="Btext4">
+                1. Crush a pack of belvita cookies into fine crumbs
+              </div>
+              <div class="Btext5">
+                2. Add your crushed belvita biscuits on top of the caramel to
+                form a crunchy layer
+              </div>
+              <div class="Ftext7">
+                3. Decorate the top with Golden Oreos and Milk Oreos and let it
+                cool in the fridge for 30min.
+              </div>
+              <div class="Ftext8">
+                4. Cut into squares, drizzle with caramel and enjoy your Oreo
+                Fudge Squares
+              </div>
+            </div>
+            <div class="scrolldiv5" style="display: none">
+              <div class="Btext6">
+                1. Add a layer of sliced bananas and top with whipped cream,
+                Oreo biscuit and Belvita biscuits.
+              </div>
+              <div class="Btext7">
+                2. Dig a spoon all the way to the bottom and savor the delicious
+                Oreo Banoffee Cups.
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <div class="errorInfo"></div>

@@ -1,4 +1,5 @@
 import "./style.scss";
+import "./style.css";
 import { Server } from "./common/callServer";
 import {
   Global,
@@ -405,7 +406,12 @@ const activateelements = () => {
     screenbtnChange();
   };
 
-  const discoverclick = () => {};
+  const discoverclick = () => {
+    title_scr.classList.remove("active");
+    title_bgEle.classList.remove("active");
+    screen_threeEle.classList.remove("active");
+    document.querySelector(".header").classList.remove("active");
+  };
   //common functions
   const screenbtnChange = () => {
     data.prev_button = screen_button[data.prev_screen];
